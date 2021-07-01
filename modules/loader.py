@@ -4,6 +4,7 @@ import os
 import requests
 import sys
 import zipfile
+import tarfile
 
 class Loader:
 
@@ -96,9 +97,14 @@ class Loader:
         '''
         Loader.__test_folder(self.extraction_target)
 
-        print(self.file)
-        with zipfile.ZipFile(self.file, 'r') as zip_ref:
-            zip_ref.extractall(self.extraction_target)
+        # print(self.file)
+        
+        if self.file.endswith(".zip"):
+            with zipfile.ZipFile(self.file, 'r') as compressed_file:
+                compressed_file.extractall(self.extraction_target)
+        elif self.file.endswith(".tar.gz"):
+            with tarfile.TarFile.open(self.file, 'r:gz') as compressed_file:
+                compressed_file.extractall(self.extraction_target)
 
 if __name__ == "__main__":
     loader = Loader(
