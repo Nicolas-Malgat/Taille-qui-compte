@@ -8,7 +8,7 @@ import tarfile
 
 class Loader:
 
-    def __init__(self, remote, target_folder, extraction_target = None):
+    def __init__(self, remote, target_folder, extraction_target=None, skip_unzip=False):
         """
             zip_folder_path doit terminer par un separateur ('/' ou '\')
         """
@@ -19,6 +19,7 @@ class Loader:
         self.file = self.folder_path + remote.split('/')[-1]
 
         self.extraction_target = extraction_target
+        self.skip_unzip = skip_unzip
 
     def ensure_data_loaded(self):
         '''
@@ -35,6 +36,9 @@ class Loader:
         else:
             print('Le fichier existe déjà')
 
+        if self.skip_unzip:
+            return
+
         if not Loader.__ask("Dé-zipper le fichier [y]/n ? "):
             return
 
@@ -42,7 +46,7 @@ class Loader:
 
         print('\nLes fichiers sont correctement extractés')
 
-    def __ask(input_text):
+    def __ask(input_text) -> bool:
         user_input = ""
         user_input = input(input_text)
         while user_input not in ["n", "N", "y", "Y", ""]:

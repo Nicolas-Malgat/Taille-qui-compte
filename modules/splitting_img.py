@@ -10,7 +10,7 @@ class Splitting():
         print(dossiers)
 
     @staticmethod
-    def copie_dossiers(dossier_racine, dossiers_a_garder, nb_images, explorer = False):
+    def copie_dossiers(dossier_racine, dossiers_a_garder, nb_images, explorer=False):
         """ Copie les fichiers donnes dans le dossier_cible
 
         Args:
@@ -23,8 +23,8 @@ class Splitting():
             Exception: un des dossier de dossiers_a_garder n'existe pas
         """
         
-        path_list = dossier_racine.split('/')
-        dossier_cible = os.sep.join(path_list[:-1]) + os.sep + path_list[-1] + "_" + "_".join(dossiers_a_garder)
+        path_list = dossier_racine.split(os.sep)
+        dossier_cible = os.sep.join(path_list[:-1]) + os.sep + path_list[-1] + str(nb_images) + "_" + "_".join(dossiers_a_garder)
         dossier_cible = os.path.abspath(dossier_cible)
 
         if Splitting.__create_path(dossier_cible):
