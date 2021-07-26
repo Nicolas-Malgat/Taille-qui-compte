@@ -31,7 +31,7 @@ Pour avoir une copie locale et lancer le programme, suivez ces étapes.
 
 1. Cloner le répertoire
 ```git
-git clone https://github.com/Nicolas-Malgat/Reco_image.git
+git clone https://github.com/Nicolas-Malgat/Taille-qui-compte.git
 ```
 2. Créer un environnement conda avec
 ```bash
@@ -39,15 +39,16 @@ conda create --name <env> --file environment.txt
 ```
 ## Utilisation
 
-- Lancer [main.ipynb](https://github.com/Nicolas-Malgat/Reco_image/blob/main/main.ipynb "main.ipynb")
-	- Ce notebook va générer le modèle ( [model.h5](https://github.com/Nicolas-Malgat/Reco_image/blob/main/model.h5 "model.h5") ) pour l'évaluation des images.
+- Lancer [jup_entrainement_modele.ipynb](https://github.com/Nicolas-Malgat/Taille-qui-compte/blob/main/jup_entrainement_modele.ipynb "jup_entrainement_modele.ipynb")
+    - Telechargement des donnees
+    - Extration des donnees
+	- Entrainement et generation des modèles ( [model.h5](https://github.com/Nicolas-Malgat/Taille-qui-compte/blob/main/model.h5 "model.h5") et [augmented_model.h5.h5](https://github.com/Nicolas-Malgat/Taille-qui-compte/blob/main/augmented_model.h5.h5 "augmented_model.h5.h5") ) pour les comparer et observer l'influence de la data augmentation
 
-- Lancer [prediction_image.ipynb](https://github.com/Nicolas-Malgat/Reco_image/blob/main/prediction_image.ipynb)
-	- Ce notebook charge une image dans la première cellule et effectue quelque tests,
-	   puis se découpe en deux parties:
-		- La première d'ajuster les filtres sur l'image 
-		- La seconde donne une prédiction sur l'image
-
+#### _optionnel_
+___
+- Lancer [jup_augmentation_donnees.ipynb](https://github.com/Nicolas-Malgat/Taille-qui-compte/blob/main/jup_augmentation_donnees.ipynb)
+	- Ce notebook charge une image et montre les modifications apportees par la data augmentation
+___
 ## Auteur
 
 Nicolas Malgat
